@@ -1,0 +1,37 @@
+<!-- aqui editamos el tema del post -->
+{%extends 'layout.html'%}
+{%block content %}
+<h1>Projects</h1>
+
+{% for post in posts %}
+
+<!-- utilizar el card car-body encierra al cotenido en tarjetas luego podemos igual especificar 
+el tamaño forma o darle efectos -->
+<div class="p-3">
+    <div class="card card-body bg-gray">
+        <div class="row">
+            <!-- estas son las columnas que queremos dividir  -->
+            <div class="col-3 ">
+                <img src="{{post.image.url}}" alt="{{post.title}}" class="img-fluid" />
+
+            </div>
+
+            <div class="col-9 text-black">
+                <h2>{{post.title}}</h2>
+                <h3>{{post.date}}</h3>
+                <p>{{post.description|striptags|truncatechars:100 }}</p>
+                <!-- con esta forma de truncatechar:100 hacemos que nuestrea description tenga 100 caratere -->
+
+                <!-- Recuerdo esta es la forma de poner fechas automaticamente directamente desde la publicacion -->
+                <!-- <p>{{post.date|date:'M d Y'|upper}}</p> -->
+
+                <a href="{%url 'blog:post_detail' post.id %}" class="btn btn-primary">{{post.title}}</a>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+{% endfor %}{% endblock %}
