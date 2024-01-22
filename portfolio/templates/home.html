@@ -4,7 +4,7 @@
 
 {% load static %}
 
-<header class="row align-items-center card-project" style="background-color: #000013; ">
+<header class="row align-items-center card-project" style="background-color: #010123; ">
     <div class="col-md-3 cardstyle=" background-color: #000013;">
         <img src="{% static 'portafolio/Damian.jpg' %}" alt="" class="img-thumbnail" class="img-fluid" alt="..." />
     </div>
@@ -14,7 +14,7 @@
         <h3>Expert en Réalité Virtuelle et technologies émergentes d'Intelligence Artificielle.
         </h3>
         <p>
-            "Avec une solide base en Python et un intérêt croissant pour l'apprentissage automatique, je me consacre à
+            Avec une solide base en Python et un intérêt croissant pour l'apprentissage automatique, je me consacre à
             créer des
             expériences immersives en réalité virtuelle, intégrant l'intelligence artificielle pour développer des
             interactions
@@ -22,8 +22,8 @@
             développement
             personnel et professionnel à l'ère de l'automatisation, aidant les individus à cultiver leurs compétences et
             à s'adapter
-            aux dynamiques changeantes du monde technologique."
-            "</p>
+            aux dynamiques changeantes du monde technologique.
+        </p>
         <a class="btn btn-primary btn-lg rounded-0 my-3" href="{% static 'portafolio/cvo.pdf'%}" target="_blank">
             Download CV</a>
     </div>
@@ -35,11 +35,11 @@
 
     <h3>Mes Projets</h3>
 
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, aperiam?</p>
+    <p>__________________________________________________</p>
 
     {% for project in projects %}
     <div class="col-md-4 p-4">
-        <div class="card  card-project " style="background-color: #000013;">
+        <div class="card  card-project " style="background-color:#010123;;">
             <img src=" {{project.image.url }}" class="card-img-top" />
             <!-- aqui cambiamos el color de los textos del proyecto -->
 
