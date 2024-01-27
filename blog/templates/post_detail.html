@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{%block content%}
+
+<div class="">
+
+
+    <h2>{{post.title}}</h2>
+    <h3 class="my-2 h5 text-muted">{{post.date|date:'F jS Y'}}</h3>
+
+    <div class="row my-1">
+        <div class="col-12">
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid"
+                style="max-width: 30%; height: auto; display: block; margin: 0 auto;">
+        </div>
+    </div>
+
+
+    <div class="my-4">
+        <h3>Description du Projet :</h3>
+        <p>{{post.description|safe}}</p>
+        <h3>{{post.title_1|safe}}</h3>
+        <p>{{post.description_1|safe}}</p>
+        <h3>{{post.title_2|safe}}</h3>
+        <p>{{post.description_2|safe}}</p>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
