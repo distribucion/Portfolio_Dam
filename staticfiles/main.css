@@ -1,0 +1,35 @@
+body {
+    background: #000000;
+
+}
+
+.bg-blue-dark {
+    background: #000033;
+    /* Puedes ajustar este valor según tus preferencias */
+}
+
+.bg-black {
+    background: #000;
+
+}
+
+
+/* esto es un efecto cuando pongamos el cursos */
+.card-project:hover {
+    border: 1px solid #eee;
+    cursor: pointer;
+}
+
+/* aqui definimos el tamaño para las imagenes */
+.custom-img-size {
+    max-width: 100%;
+    /* O el porcentaje o px que desees */
+    height: auto;
+    /* Esto asegurará que la imagen conserve su proporción */
+}
+
+.img-fixed-size {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
