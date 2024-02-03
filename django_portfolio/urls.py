@@ -41,3 +41,19 @@ Including another URLconf
 # ]
 
 # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+from django.contrib import admin
+from django.urls import path, include
+from portfolio import views
+
+# Definición de urlpatterns para tu proyecto Django
+urlpatterns = [
+    path('admin/', admin.site.urls),  # Ruta para el administrador de Django
+    # Ruta para la vista 'home' de la app 'portfolio'
+    path('', views.home, name='home'),
+    path('blog/', include('blog.urls')),  # Incluye las URLs de la app 'blog'
+]
+
+# No es necesario añadir rutas para servir archivos estáticos y multimedia en producción
+# ya que se servirán directamente desde Azure Blob Storage según configuración en settings.py

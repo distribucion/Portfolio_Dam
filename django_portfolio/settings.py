@@ -141,7 +141,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 # implementacion nueva Azure
-STATIC_URL = f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_STATIC_CONTAINER}/' if not DEBUG else '/static/'
+# STATIC_URL = f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_STATIC_CONTAINER}/' if not DEBUG else '/static/'
 
 
 # STATIC_URL = 'static/'
@@ -154,13 +154,19 @@ STATIC_URL = f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_STATIC_
 # Turn on WhiteNoise storage backend that takes care of compressing static files
 # and creating unique names for each version so they can safely be cached forever.
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
 # MEDIA_URL = '/public/'
 # MEDIA_ROOT = BASE_DIR / 'media'
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # Used by collectstatic
-STATICFILES_STORAGE = 'storages.backends.azure_storage.AzureStorage' if not DEBUG else 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
+STATIC_URL = '/static/' if DEBUG else f'https://{os.getenv("AZURE_ACCOUNT_NAME")}.blob.core.windows.net/{os.getenv("AZURE_STATIC_CONTAINER")}/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage' if DEBUG else 'storages.backends.azure_storage.AzureStorage'
+
+MEDIA_URL = f'https://{os.getenv("AZURE_ACCOUNT_NAME")}.blob.core.windows.net/{os.getenv("AZURE_CONTAINER")}/'
 DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
-MEDIA_URL = f'https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_CONTAINER}/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
