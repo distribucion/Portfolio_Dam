@@ -97,9 +97,17 @@ WSGI_APPLICATION = 'django_portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': dj_database_url.config( #         default='postgresql://postgres:postgres@localhost/postgres', conn_max_age=600
+#     )
+# }
+
+
+# intento con Database pensando en render
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost/postgres', conn_max_age=600
+        default=os.environ.get('DATABASE_URL'),
+        conn_max_age=600,
     )
 }
 
